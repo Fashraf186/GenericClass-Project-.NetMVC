@@ -14,7 +14,7 @@ namespace GenericClass.Controllers
     {
         private _IGenericRepo<Enrollment> Eobj;
 
-        private ProjectDataEntities _context;
+        private ProjectDataEntities _context;  //declare the object of the database to get access the members of Course and Student table.
 
         public EnrollmentsController()
         {
@@ -37,12 +37,12 @@ namespace GenericClass.Controllers
         }
 
         // GET: Enrollments/Create
-        public ActionResult Create()
+        public ActionResult Create()  //This create method is used to get data from database for the temporary purpose because of the dropdownlist in the view/create file.
         {
 
-            ViewBag.CourseID = new SelectList(_context.Courses, "CourseID", "Title");
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "LastName");
-            return View();
+            ViewBag.CourseID = new SelectList(_context.Courses, "CourseID", "Title");  //retriving data from Course table. 
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "LastName"); //retriving data from student table.
+            return View();  //Viewbag.CourseId/StudentID is used for temporary data holding.
         }
 
         // POST: Enrollments/Create
@@ -61,8 +61,7 @@ namespace GenericClass.Controllers
 
             catch
             {
-                //ViewBag.CourseID = new SelectList(_context.Courses, "CourseID", "Title", .CourseID);
-                //ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "LastName", enrollment.StudentID);
+                
                 return View();
             }
         }
