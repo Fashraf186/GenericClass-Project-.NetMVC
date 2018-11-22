@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericClass.Models.Interface
+namespace GenericClass.Models.Interfaces
 {
     interface _IGenericRepo<T> where T : class
     {
@@ -17,7 +17,7 @@ namespace GenericClass.Models.Interface
         void UpdateByID(T model);
 
 
-        void Remove(int model);
+        void Remove(int modelID);
 
         void save();
 
